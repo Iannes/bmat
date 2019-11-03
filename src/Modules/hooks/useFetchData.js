@@ -3,7 +3,7 @@ import Papa from "papaparse"
 import fileInput from "../../Api/db.csv"
 import { useStoreDispatch } from "../../Lib/contexts/Store"
 
-const useFetch = () => {
+const useFetchData = () => {
   const [rows, setRows] = React.useState([])
   const dispatch = useStoreDispatch()
 
@@ -32,4 +32,4 @@ const useFetch = () => {
   }, [dispatch, rows])
 }
 
-export default useFetch
+export default useFetchData
