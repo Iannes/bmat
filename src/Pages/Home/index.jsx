@@ -1,9 +1,19 @@
 import React from "react"
+import { useStoreState } from "../../Lib/contexts/Store"
+import db from "../../Api/db.csv"
+import useFetchData from "../../Modules/hooks/useFetchData"
+import { Home } from "./Home"
+import Table from "../../Modules/components/Table/Table"
 
-const Home = () => (
-  <section className="Home">
-    <h3>Home</h3>
-  </section>
-)
+const HomeContainer = () => {
+  const state = useStoreState()
+  useFetchData(db, "FETCH_DATA")
 
-export default Home
+  return (
+    <section className="HomeContainer">
+      <Table rows={state.data} />
+    </section>
+  )
+}
+
+export default HomeContainer
