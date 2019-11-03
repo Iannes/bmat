@@ -1,54 +1,31 @@
 import React from "react"
+import Typography from "@material-ui/core/Typography"
 import TableCell from "@material-ui/core/TableCell"
 import TableHead from "@material-ui/core/TableHead"
 import TableRow from "@material-ui/core/TableRow"
-import TableSortLabel from "@material-ui/core/TableSortLabel"
-import Checkbox from "@material-ui/core/Checkbox"
 
-export const Head = ({
-  classes,
-  onSelectAllClick,
-  order,
-  orderBy,
-  numSelected,
-  rowCount,
-  onRequestSort,
-  data = []
-}) => {
-  const createSortHandler = property => event => {
-    onRequestSort(event, property)
-  }
+export const Head = () => {
+  const headcells = [
+    { id: "empty", label: "" },
+    { id: "artist", label: "Artist" },
+    { id: "duration", label: "Duration" },
+    { id: "isrc", label: "ISRC" },
+    { id: "title", label: "Title" }
+  ]
 
   return (
-    <TableHead>
+    <TableHead style={{ background: "rgba(0, 0, 0, 0.87)" }}>
       <TableRow>
-        <TableCell padding="checkbox">
-          <Checkbox
-            indeterminate={numSelected > 0 && numSelected < rowCount}
-            checked={numSelected === rowCount}
-            onChange={onSelectAllClick}
-            inputProps={{ "aria-label": "select all" }}
-          />
-        </TableCell>
-        {data.map(headCell => (
+        {headcells.map((headCell, i) => (
           <TableCell
-            key={headCell.isrc}
-            align="left"
+            key={`${headCell.id}-${headCell.label}`}
+            align={i === 0 || i === 1 ? "left" : "right"}
             padding="default"
-            sortDirection={orderBy === headCell.isrc ? order : false}
+            sortDirection={false}
           >
-            <TableSortLabel
-              active={orderBy === headCell.isrc}
-              direction={order}
-              onClick={createSortHandler(headCell.isrc)}
-            >
+            <Typography style={{ color: "#fff" }} variant="h6">
               {headCell.label}
-              {orderBy === headCell.isrc ? (
-                <span className={classes.visuallyHidden}>
-                  {order === "desc" ? "sorted descending" : "sorted ascending"}
-                </span>
-              ) : null}
-            </TableSortLabel>
+            </Typography>
           </TableCell>
         ))}
       </TableRow>
