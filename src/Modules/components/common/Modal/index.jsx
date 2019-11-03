@@ -8,8 +8,9 @@ import InputLabel from "@material-ui/core/InputLabel"
 import Input from "@material-ui/core/Input"
 import FormControl from "@material-ui/core/FormControl"
 import Select from "@material-ui/core/Select"
-import { useStyles } from "../../Select/Styles"
+import Options from "./Options"
 import { useStoreState, useStoreDispatch } from "../../../../Lib/contexts/Store"
+import { useStyles } from "../../Select/Styles"
 
 export default function DialogSelect({ data = [] }) {
   const classes = useStyles()
@@ -56,17 +57,7 @@ export default function DialogSelect({ data = [] }) {
                 onChange={handleChange}
                 input={<Input id="demo-dialog-native" />}
               >
-                {data &&
-                  data.map(item => {
-                    return (
-                      <option
-                        key={`${item.isrc}-${item.title}`}
-                        value={`${item.artist}-${item.title}`}
-                      >
-                        {item.title}
-                      </option>
-                    )
-                  })}
+                <Options data={data} />
               </Select>
             </FormControl>
           </form>
