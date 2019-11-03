@@ -9,8 +9,7 @@ const initialState = {
   data: [],
   metaData: [],
   isDialogOpen: false,
-  chosenTitle: "",
-  suggestions: [...suggestions]
+  chosenTitle: ""
 }
 
 const StoreProvider = ({ children }) => {
