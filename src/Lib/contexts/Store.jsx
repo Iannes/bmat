@@ -1,6 +1,5 @@
 import React from "react"
 import reducer from "../reducers/StoreReducer"
-import { suggestions } from "../../Modules/mocks"
 
 const StoreStateContext = React.createContext({})
 const StoreDispatchContext = React.createContext({})
