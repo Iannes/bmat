@@ -1,9 +1,8 @@
 import React from "react"
 import Papa from "papaparse"
-import fileInput from "../../Api/db.csv"
 import { useStoreDispatch } from "../../Lib/contexts/Store"
 
-const useFetchData = () => {
+const useFetchData = (fileInput, type = "FETCH_DATA") => {
   const [rows, setRows] = React.useState([])
   const dispatch = useStoreDispatch()
 
@@ -20,16 +19,16 @@ const useFetchData = () => {
       console.log("Fetched results")
     }
     getData()
-  }, [])
+  }, [fileInput])
 
   React.useEffect(() => {
     dispatch({
-      type: "FETCH_DATA",
+      type,
       payload: {
         data: rows
       }
     })
-  }, [dispatch, rows])
+  }, [dispatch, rows, type])
 }
 
 export default useFetchData
