@@ -9,7 +9,7 @@ const reducer = (state, action) => {
     case "FETCH_META_DATA": {
       return {
         ...state,
-        data: [...state.metadata, ...action.payload.metadata]
+        metadata: [...state.metadata, ...action.payload.metadata]
       }
     }
     default: {
