@@ -25,7 +25,8 @@ const useFetchData = (fileInput, type = "FETCH_DATA") => {
     dispatch({
       type,
       payload: {
-        data: rows
+        data: type === "FETCH_DATA" ? rows : "",
+        metaData: type === "FETCH_META_DATA" ? rows : ""
       }
     })
   }, [dispatch, rows, type])
