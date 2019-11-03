@@ -7,16 +7,8 @@ export const useStyles = makeStyles(theme => ({
   },
   paper: {
     width: "100%",
-    marginBottom: theme.spacing(2)
-  },
-  table: {
-    minWidth: 750
-  },
-  tableWrapper: {
-    overflowX: "auto"
-  },
-  tableHead: {
-    background: "red"
+    marginBottom: theme.spacing(2),
+    padding: theme.spacing(3)
   },
   visuallyHidden: {
     border: 0,

@@ -9,13 +9,15 @@ export default function List({ rows = [] }) {
     <>
       {rows.map(row => {
         return (
-          <section className={classes.root}>
-            <Paper className={classes.paper}>
-              <article row={row} key={`${row.isrc}${row.title}`}>
-                {row.title}
-              </article>
-            </Paper>
-          </section>
+          row.title && (
+            <section className={classes.root}>
+              <Paper className={classes.paper}>
+                <article row={row} key={`${row.isrc}${row.title}`}>
+                  {row.title}
+                </article>
+              </Paper>
+            </section>
+          )
         )
       })}
     </>
