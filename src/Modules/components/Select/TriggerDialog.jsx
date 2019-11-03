@@ -29,11 +29,11 @@ export default function TriggerDialog() {
 
   return (
     <Tooltip title="Select Title">
-      <IconButton aria-label="select title">
-        <Typography onClick={handleOpen} variant="h6" className={classes.title}>
+      <IconButton onClick={handleOpen} aria-label="select title">
+        <Typography variant="h6" className={classes.title}>
           BMAT Select
         </Typography>
-        <FilterListIcon className={classes.icon} onClick={handleOpen} />
+        <FilterListIcon className={classes.icon} />
       </IconButton>
     </Tooltip>
   )

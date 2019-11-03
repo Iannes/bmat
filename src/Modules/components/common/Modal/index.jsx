@@ -61,7 +61,7 @@ export default function DialogSelect({ data = [] }) {
                     return (
                       <option
                         key={`${item.isrc}-${item.title}`}
-                        value={item.title}
+                        value={`${item.artist}-${item.title}`}
                       >
                         {item.title}
                       </option>
