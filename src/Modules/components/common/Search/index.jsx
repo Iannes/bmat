@@ -42,12 +42,12 @@ export default function SearchField() {
               <article {...getMenuProps()}>
                 {isOpen ? (
                   <Paper className={classes.paper} square>
-                    {getSuggestions(inputValue, state.suggestions).map(
+                    {getSuggestions(inputValue, state.metaData).map(
                       (suggestion, index) =>
                         renderSuggestion({
                           suggestion,
                           index,
-                          itemProps: getItemProps({ item: suggestion.label }),
+                          itemProps: getItemProps({ item: suggestion.title }),
                           highlightedIndex,
                           selectedItem
                         })
