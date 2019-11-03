@@ -4,7 +4,7 @@ import db from "../../Api/db.csv"
 import metaData from "../../Api/metadata.csv"
 import useFetchData from "../../Modules/hooks/useFetchData"
 import List from "../../Modules/components/List"
-import Select from "../../Modules/components/Select"
+import Modal from "../../Modules/components/common/Modal"
 
 const HomeContainer = () => {
   const state = useStoreState()
@@ -12,9 +12,9 @@ const HomeContainer = () => {
   useFetchData(metaData, "FETCH_META_DATA")
 
   return (
-    <section className="HomeContainer">
-      <Select data={state.metaData} />
+    <section style={{ width: "100%" }}>
       <List rows={state.data} />
+      <Modal data={state.metaData} />
     </section>
   )
 }
