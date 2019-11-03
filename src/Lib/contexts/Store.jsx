@@ -1,14 +1,16 @@
 import React from "react"
 import reducer from "../reducers/StoreReducer"
+import { suggestions } from "../../Modules/mocks"
 
 const StoreStateContext = React.createContext({})
 const StoreDispatchContext = React.createContext({})
 
 const initialState = {
   data: [],
-  metadata: [],
+  metaData: [],
   isDialogOpen: false,
-  chosenTitle: ""
+  chosenTitle: "",
+  suggestions: [...suggestions]
 }
 
 const StoreProvider = ({ children }) => {

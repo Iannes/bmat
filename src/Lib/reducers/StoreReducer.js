@@ -9,7 +9,7 @@ const reducer = (state, action) => {
     case "FETCH_META_DATA": {
       return {
         ...state,
-        metadata: [...state.metadata, ...action.payload.metadata]
+        metaData: [...state.metaData, ...action.payload.metaData]
       }
     }
     case "TOGGLE_DIALOG": {
