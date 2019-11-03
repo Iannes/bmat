@@ -30,9 +30,6 @@ export default function TriggerDialog() {
   return (
     <Tooltip title="Select Title">
       <IconButton onClick={handleOpen} aria-label="select title">
-        <Typography variant="h6" className={classes.title}>
-          Select Title
-        </Typography>
         <FilterListIcon className={classes.icon} />
       </IconButton>
     </Tooltip>
