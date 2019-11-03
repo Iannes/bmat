@@ -18,6 +18,12 @@ const reducer = (state, action) => {
         isDialogOpen: !state.isDialogOpen
       }
     }
+    case "TOGGLE_SEARCH": {
+      return {
+        ...state,
+        isSearchOpen: !state.isSearchOpen
+      }
+    }
     case "SET_TITLE": {
       console.log(action.payload)
       return {
