@@ -1,0 +1,40 @@
+import React from "react"
+import { makeStyles } from "@material-ui/core/styles"
+import Typography from "@material-ui/core/Typography"
+import IconButton from "@material-ui/core/IconButton"
+import Tooltip from "@material-ui/core/Tooltip"
+import FilterListIcon from "@material-ui/icons/FilterList"
+import { useStoreDispatch } from "../../../Lib/contexts/Store"
+
+const useStyles = makeStyles(() => ({
+  icon: {
+    flexGrow: 1,
+    color: "white"
+  },
+  title: {
+    flexGrow: 1,
+    color: "white",
+    marginRight: 20
+  }
+}))
+
+export default function TriggerDialog() {
+  const classes = useStyles()
+  const dispatch = useStoreDispatch()
+  const handleOpen = () => {
+    dispatch({
+      type: "TOGGLE_DIALOG"
+    })
+  }
+
+  return (
+    <Tooltip title="Select Title">
+      <IconButton aria-label="select title">
+        <Typography onClick={handleOpen} variant="h6" className={classes.title}>
+          BMAT Select
+        </Typography>
+        <FilterListIcon className={classes.icon} onClick={handleOpen} />
+      </IconButton>
+    </Tooltip>
+  )
+}
