@@ -15,7 +15,7 @@ export const renderSuggestion = suggestionProps => {
   return (
     <MenuItem
       {...itemProps}
-      key={suggestion.title}
+      key={`${suggestion.title}-${suggestion.isrc}`}
       selected={isHighlighted}
       component="article"
       style={{
