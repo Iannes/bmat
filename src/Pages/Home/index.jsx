@@ -3,7 +3,7 @@ import { useStoreState } from "../../Lib/contexts/Store"
 import db from "../../Api/db.csv"
 import metaData from "../../Api/metadata.csv"
 import useFetchData from "../../Modules/hooks/useFetchData"
-import Table from "../../Modules/components/Table"
+import List from "../../Modules/components/List"
 import Select from "../../Modules/components/Select"
 
 const HomeContainer = () => {
@@ -14,7 +14,7 @@ const HomeContainer = () => {
   return (
     <section className="HomeContainer">
       <Select data={state.metaData} />
-      <Table rows={state.data} />
+      <List rows={state.data} />
     </section>
   )
 }
