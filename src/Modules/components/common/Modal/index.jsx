@@ -15,7 +15,6 @@ import { useStyles } from "../../Select/Styles"
 export default function DialogSelect({ data = [] }) {
   const classes = useStyles()
   const [open, setOpen] = React.useState(false)
-  const [title, setTitle] = React.useState("")
   const state = useStoreState()
   const dispatch = useStoreDispatch()
 
