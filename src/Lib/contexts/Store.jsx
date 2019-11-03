@@ -8,6 +8,7 @@ const initialState = {
   data: [],
   metaData: [],
   isDialogOpen: false,
+  isSearchOpen: false,
   chosenTitle: ""
 }
 
