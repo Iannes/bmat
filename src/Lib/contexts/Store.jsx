@@ -6,7 +6,9 @@ const StoreDispatchContext = React.createContext({})
 
 const initialState = {
   data: [],
-  metadata: []
+  metadata: [],
+  isDialogOpen: false,
+  chosenTitle: ""
 }
 
 const StoreProvider = ({ children }) => {

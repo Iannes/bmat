@@ -12,6 +12,19 @@ const reducer = (state, action) => {
         metadata: [...state.metadata, ...action.payload.metadata]
       }
     }
+    case "TOGGLE_DIALOG": {
+      return {
+        ...state,
+        isDialogOpen: !state.isDialogOpen
+      }
+    }
+    case "SET_TITLE": {
+      console.log(action.payload)
+      return {
+        ...state,
+        chosenTitle: action.payload.title
+      }
+    }
     default: {
       throw new Error(`Unhandled action type: ${action.type}`)
     }
