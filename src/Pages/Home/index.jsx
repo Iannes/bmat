@@ -2,8 +2,7 @@ import React from "react"
 import { useStoreState } from "../../Lib/contexts/Store"
 import db from "../../Api/db.csv"
 import useFetchData from "../../Modules/hooks/useFetchData"
-import { Home } from "./Home"
-import Table from "../../Modules/components/Table/Table"
+import Table from "../../Modules/components/Table"
 
 const HomeContainer = () => {
   const state = useStoreState()
