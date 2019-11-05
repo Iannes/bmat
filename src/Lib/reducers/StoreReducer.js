@@ -3,7 +3,8 @@ const reducer = (state, action) => {
     case "FETCH_DATA": {
       return {
         ...state,
-        data: [...state.data, ...action.payload.data]
+        data: [...state.data, ...action.payload.data],
+        searchResults: []
       }
     }
     case "FETCH_META_DATA": {
@@ -18,14 +19,14 @@ const reducer = (state, action) => {
         isDialogOpen: !state.isDialogOpen
       }
     }
-    case "TOGGLE_SEARCH": {
+    case "GET_RESULTS": {
       return {
         ...state,
-        isSearchOpen: !state.isSearchOpen
+        searchResults: [...action.payload.searchResults]
       }
     }
     case "SET_TITLE": {
-      console.log(action.payload)
+      console.log("SET_TITLE", action.payload)
       return {
         ...state,
         chosenTitle: action.payload.title

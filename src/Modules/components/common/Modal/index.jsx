@@ -11,6 +11,8 @@ import Select from "@material-ui/core/Select"
 import Options from "./Options"
 import { useStoreState, useStoreDispatch } from "../../../../Lib/contexts/Store"
 import { useStyles } from "../../Select/Styles"
+import { filterData } from "../../../helpers/filterData"
+import db from "../../../../Api/db.csv"
 
 export default function DialogSelect({ data = [] }) {
   const classes = useStyles()
@@ -34,6 +36,14 @@ export default function DialogSelect({ data = [] }) {
     dispatch({
       type: "TOGGLE_DIALOG"
     })
+  }
+  const handleConfirm = () => {
+    const result = filterData(state.chosenTitle, state.data)
+    dispatch({
+      type: "GET_RESULTS",
+      payload: { searchResults: [...result] }
+    })
+    handleClose()
   }
 
   return (
@@ -65,7 +75,7 @@ export default function DialogSelect({ data = [] }) {
           <Button onClick={handleClose} color="primary">
             Cancel
           </Button>
-          <Button onClick={handleClose} color="primary">
+          <Button onClick={handleConfirm} color="primary">
             Ok
           </Button>
         </DialogActions>
