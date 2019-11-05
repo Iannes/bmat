@@ -9,7 +9,8 @@ const theme = createMuiTheme({
   palette: {
     primary: {
       main: "#397f8e", // Teal
-      light: "#e4f4f4" // Mint
+      light: "#e4f4f4", // Mint
+      white: "#fff"
     },
     error: {
       main: "#ab1d00" // Error accent
@@ -50,18 +51,6 @@ const theme = createMuiTheme({
       root: { boxSizing: "border-box" },
       dense: { minHeight: 40 }
     },
-    MuiExpansionPanel: {
-      root: { marginBottom: `${spacing(1)}px !important` }
-    },
-    MuiExpansionPanelSummary: {
-      root: { padding: `${spacing(1)}px ${spacing(2)}px` },
-      content: { margin: "0 !important" },
-      expandIcon: { padding: `${spacing(1)}px` }
-    },
-    MuiExpansionPanelDetails: {
-      root: { padding: 0 }
-    },
-    MuiCardActionArea: { root: { padding: `${spacing(1)}px` } },
     MuiDialog: {
       paperFullWidth: {
         margin: 0,
@@ -82,54 +71,6 @@ const theme = createMuiTheme({
       marginDense: {
         marginTop: 0,
         marginBottom: spacing(1)
-      }
-    },
-    MuiLinearProgress: { colorSecondary: { backgroundColor: "#dbdbdb" } },
-    MuiChip: {
-      root: {
-        fontWeight: 600,
-        padding: "0 2px" // set default chips have 2px left and right padding
-      },
-      outlined: {
-        background: "#ffffff",
-        borderWidth: "2px !important",
-        padding: 0 // outlined chips have border left and right instead of padding
-      },
-      label: {
-        fontSize: "14px",
-        padding: `${spacing(0)}px ${spacing(1)}px`,
-        margin: spacing(1) / 2
-      }
-    },
-    MuiFormControlLabel: {
-      root: {
-        marginRight: 0,
-        marginTop: "2px"
-      }
-    },
-
-    // Stepper overrides
-    MuiStepper: { root: { padding: 0 } },
-    MuiStepLabel: {
-      label: {
-        color: "#494949",
-        fontSize: "14px",
-        marginTop: "3px !important",
-        lineHeight: "18px"
-      },
-      alternativeLabel: { fontWeight: 400, fontSize: "12px !important" }
-    },
-    MuiStep: {
-      horizontal: { padding: "0 !important" }
-    },
-
-    MuiDivider: { light: { backgroundColor: "white" } },
-    MuiTooltip: {
-      touch: {
-        padding: "4px 8px",
-        fontSize: "0.625rem",
-        fontWeight: "inherit",
-        lineHeight: "inherit"
       }
     }
   }
