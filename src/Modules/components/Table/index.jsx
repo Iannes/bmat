@@ -10,19 +10,9 @@ export default function DataTable({ rows = [] }) {
   const classes = useStyles()
   const [selected, setSelected] = React.useState([])
 
-  const handleSelectAllClick = event => {
-    if (event.target.checked) {
-      const newSelecteds = rows.map(n => n.name)
-      setSelected(newSelecteds)
-      return
-    }
-    setSelected([])
-  }
-
   const handleClick = (_, name) => {
     const selectedIndex = selected.indexOf(name)
     let newSelected = []
-
     if (selectedIndex === -1) {
       newSelected = newSelected.concat(selected, name)
     } else if (selectedIndex === 0) {
@@ -53,7 +43,6 @@ export default function DataTable({ rows = [] }) {
             <Head
               classes={classes}
               numSelected={selected.length}
-              onSelectAllClick={handleSelectAllClick}
               rowCount={rows.length}
             />
             <TableBody>
