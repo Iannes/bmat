@@ -12,7 +12,7 @@ import Options from "./Options"
 import { useStoreState, useStoreDispatch } from "../../../../Lib/contexts/Store"
 import { useStyles } from "../../Select/Styles"
 import { filterData } from "../../../helpers/filterData"
-import db from "../../../../Api/db.csv"
+import { setTitle, toggleDialog, getResults } from "../../../../Lib/actions"
 
 export default function DialogSelect({ data = [] }) {
   const classes = useStyles()
@@ -26,23 +26,15 @@ export default function DialogSelect({ data = [] }) {
   }, [state, state.isDialogOpen])
 
   const handleChange = event => {
-    dispatch({
-      type: "SET_TITLE",
-      payload: { title: event.target.value }
-    })
+    dispatch(setTitle(event.target.value))
   }
 
   const handleClose = () => {
-    dispatch({
-      type: "TOGGLE_DIALOG"
-    })
+    dispatch(toggleDialog())
   }
   const handleConfirm = () => {
     const result = filterData(state.chosenTitle, state.data)
-    dispatch({
-      type: "GET_RESULTS",
-      payload: { searchResults: [...result] }
-    })
+    dispatch(getResults(result))
     handleClose()
   }
 

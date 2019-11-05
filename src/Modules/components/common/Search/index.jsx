@@ -33,7 +33,7 @@ export default function SearchField() {
               {renderInput({
                 fullWidth: true,
                 classes,
-                label: "Title",
+                label: "Song Title",
                 InputLabelProps: getLabelProps({ shrink: true }),
                 InputProps: { onBlur, onFocus },
                 inputProps
