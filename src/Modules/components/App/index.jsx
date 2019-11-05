@@ -6,6 +6,7 @@ import AppRouter from "../../router"
 // Material ui
 import MaterialThemeProvider from "../../../Lib/contexts/ThemeProvider"
 import AppLayout from "../common/Layout/AppLayout"
+import "../../core/index.css"
 
 const AppContainer = () => (
   <HashRouter>
