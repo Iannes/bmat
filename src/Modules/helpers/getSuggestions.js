@@ -23,8 +23,8 @@ export function getSuggestions(
     : suggestions.filter(suggestion => {
         const keep =
           count < 5 &&
-          suggestion.title &&
-          suggestion.title.slice(0, inputLength).toLowerCase() === inputValue
+          suggestion.artist &&
+          suggestion.artist.slice(0, inputLength).toLowerCase() === inputValue
 
         if (keep) {
           count += 1

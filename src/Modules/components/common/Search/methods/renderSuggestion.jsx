@@ -10,7 +10,7 @@ export const renderSuggestion = suggestionProps => {
     selectedItem
   } = suggestionProps
   const isHighlighted = highlightedIndex === index
-  const isSelected = (selectedItem || "").indexOf(suggestion.title) > -1
+  const isSelected = (selectedItem || "").indexOf(suggestion.artist) > -1
 
   return (
     <MenuItem
@@ -22,7 +22,7 @@ export const renderSuggestion = suggestionProps => {
         fontWeight: isSelected ? 500 : 400
       }}
     >
-      {suggestion.title}
+      {`${suggestion.artist} - ${suggestion.title}`}
     </MenuItem>
   )
 }
