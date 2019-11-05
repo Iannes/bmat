@@ -25,6 +25,7 @@ export default function SearchField() {
   return (
     <article className={classes.root}>
       <TextField
+        className={classes.input}
         InputProps={{
           value: inputVal,
           onChange: handleChange,
