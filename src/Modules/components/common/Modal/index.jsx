@@ -76,7 +76,7 @@ export default function DialogSelect({ data = [] }) {
             Cancel
           </Button>
           <Button onClick={handleConfirm} color="primary">
-            Ok
+            Search
           </Button>
         </DialogActions>
       </Dialog>
