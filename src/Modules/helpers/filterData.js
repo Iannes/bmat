@@ -8,7 +8,7 @@ import deburr from "lodash/deburr"
  *
  */
 
-export function filterData(value, database = []) {
+export function filterData(value, database = [], key = "title") {
   const inputValue = deburr(value.trim()).toLowerCase()
   const inputLength = inputValue.length
   const results = []
@@ -17,8 +17,8 @@ export function filterData(value, database = []) {
     ? []
     : database.filter(suggestion => {
         const matchFound =
-          suggestion.title &&
-          suggestion.title.slice(0, inputLength).toLowerCase() === inputValue
+          suggestion[key] &&
+          suggestion[key].slice(0, inputLength).toLowerCase() === inputValue
 
         if (matchFound) {
           results.push(suggestion)

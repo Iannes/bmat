@@ -1,15 +1,28 @@
 import React from "react"
 import Downshift from "downshift"
 import Paper from "@material-ui/core/Paper"
+import { useStoreState, useStoreDispatch } from "../../../../Lib/contexts/Store"
 import { renderInput } from "./methods/renderInput"
 import { renderSuggestion } from "./methods/renderSuggestion"
 import { getSuggestions } from "../../../helpers/getSuggestions"
-import { useStoreState } from "../../../../Lib/contexts/Store"
 import { useStyles } from "./Styles"
+import { filterData } from "../../../helpers/filterData"
+import { getResults } from "../../../../Lib/actions"
 
 export default function SearchField() {
   const state = useStoreState()
   const classes = useStyles()
+  const ref = React.useRef()
+  const dispatch = useStoreDispatch()
+
+  const handleKeyPress = e => {
+    if (e.key === "Enter") {
+      // TODO: Dispatch
+      const result = filterData(ref.current.value, state.data, "artist")
+      ref.current.value = ""
+      dispatch(getResults(result))
+    }
+  }
 
   return (
     <article className={classes.root}>
@@ -18,14 +31,13 @@ export default function SearchField() {
           getInputProps,
           getItemProps,
           getLabelProps,
-          getMenuProps,
           highlightedIndex,
           inputValue,
           isOpen,
           selectedItem
         }) => {
           const { onBlur, onFocus, ...inputProps } = getInputProps({
-            placeholder: "Search for a title"
+            placeholder: "Search by artist's name"
           })
 
           return (
@@ -33,13 +45,15 @@ export default function SearchField() {
               {renderInput({
                 fullWidth: true,
                 classes,
-                label: "Song Title",
+                label: "Artist",
                 InputLabelProps: getLabelProps({ shrink: true }),
                 InputProps: { onBlur, onFocus },
-                inputProps
+                inputProps,
+                onKeyPress: handleKeyPress,
+                ref
               })}
 
-              <article {...getMenuProps()}>
+              <>
                 {isOpen ? (
                   <Paper className={classes.paper} square>
                     {getSuggestions(inputValue, state.metaData).map(
@@ -47,14 +61,16 @@ export default function SearchField() {
                         renderSuggestion({
                           suggestion,
                           index,
-                          itemProps: getItemProps({ item: suggestion.title }),
+                          itemProps: getItemProps({
+                            item: suggestion.artist
+                          }),
                           highlightedIndex,
                           selectedItem
                         })
                     )}
                   </Paper>
                 ) : null}
-              </article>
+              </>
             </article>
           )
         }}

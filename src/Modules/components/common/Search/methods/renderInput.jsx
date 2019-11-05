@@ -3,7 +3,6 @@ import TextField from "@material-ui/core/TextField"
 
 export const renderInput = inputProps => {
   const { InputProps, classes, ref, ...other } = inputProps
-
   return (
     <TextField
       InputProps={{
