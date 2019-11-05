@@ -13,7 +13,7 @@ export default function List({ rows = [] }) {
             <section className={classes.root}>
               <Paper className={classes.paper}>
                 <article row={row} key={`${row.isrc}${row.title}`}>
-                  {row.title}
+                  <b>{row.artist}</b>-{row.title}
                 </article>
               </Paper>
             </section>
