@@ -1,15 +1,6 @@
 import React from "react"
 import Table from "../Table"
-
-const Text = ({ content = "search" }) => {
-  return <p>{content}</p>
-}
-const Form = () => {
-  return <p>Form</p>
-}
-const MatchFound = ({ state }) => {
-  return state.matchFound ? <Form /> : <Text />
-}
+import MatchFound from "../common/MatchFound"
 
 const Results = ({ state }) => {
   const hasResults = state.searchResults && state.searchResults.length > 0
