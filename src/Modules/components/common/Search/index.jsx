@@ -1,21 +1,23 @@
 import React from "react"
-import TextField from "@material-ui/core/TextField"
+import { SearchInput } from "./SearchInput"
 import { useStoreState, useStoreDispatch } from "../../../../Lib/contexts/Store"
-import { useStyles } from "./Styles"
 import { filterData } from "../../../helpers/filterData"
 import { getResults } from "../../../../Lib/actions"
 
-export default function SearchField() {
+const SearchContainer = () => {
   const state = useStoreState()
-  const classes = useStyles()
   const dispatch = useStoreDispatch()
   const [inputVal, setInputVal] = React.useState("")
+  const results = filterData(inputVal, state.data, "artist")
+
+  const handleSearch = () => {
+    setInputVal("")
+    dispatch(getResults(results))
+  }
 
   const handleKeyPress = e => {
     if (e.key === "Enter") {
-      const results = filterData(inputVal, state.data, "artist")
-      setInputVal("")
-      dispatch(getResults(results))
+      handleSearch()
     }
   }
   const handleChange = e => {
@@ -23,15 +25,13 @@ export default function SearchField() {
   }
 
   return (
-    <article className={classes.root}>
-      <TextField
-        className={classes.input}
-        InputProps={{
-          value: inputVal,
-          onChange: handleChange,
-          onKeyPress: handleKeyPress
-        }}
-      />
-    </article>
+    <SearchInput
+      inputVal={inputVal}
+      handleChange={handleChange}
+      handleKeyPress={handleKeyPress}
+      handleSearch={handleSearch}
+    />
   )
 }
+
+export default SearchContainer
