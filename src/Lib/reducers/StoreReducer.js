@@ -22,11 +22,11 @@ const reducer = (state, action) => {
     case "GET_RESULTS": {
       return {
         ...state,
-        searchResults: [...action.payload.searchResults]
+        searchResults: [...action.payload.searchResults],
+        matchFound: action.payload.matchFound
       }
     }
     case "SET_TITLE": {
-      console.log("SET_TITLE", action.payload)
       return {
         ...state,
         chosenTitle: action.payload.title

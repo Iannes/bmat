@@ -13,6 +13,6 @@ export const toggleDialog = () => {
 export const getResults = results => {
   return {
     type: "GET_RESULTS",
-    payload: { searchResults: [...results] }
+    payload: { searchResults: [...results], matchFound: results }
   }
 }
