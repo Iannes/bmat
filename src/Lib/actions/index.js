@@ -16,3 +16,9 @@ export const getResults = results => {
     payload: { searchResults: [...results], matchFound: results }
   }
 }
+export const openAddForm = boolean => {
+  return {
+    type: "OPEN_ADD_FORM",
+    payload: { isAddFormOpen: boolean }
+  }
+}

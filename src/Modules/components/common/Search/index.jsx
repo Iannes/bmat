@@ -2,13 +2,17 @@ import React from "react"
 import { SearchInput } from "./SearchInput"
 import { useStoreState, useStoreDispatch } from "../../../../Lib/contexts/Store"
 import { filterData } from "../../../helpers/filterData"
-import { getResults } from "../../../../Lib/actions"
+import { getResults, openAddForm } from "../../../../Lib/actions"
 
 const SearchContainer = () => {
   const state = useStoreState()
   const dispatch = useStoreDispatch()
   const [inputVal, setInputVal] = React.useState("")
   const results = filterData(inputVal, state.data, "artist")
+
+  const handleFormOpen = () => {
+    dispatch(openAddForm(!state.isAddFormOpen))
+  }
 
   const handleSearch = () => {
     setInputVal("")
@@ -30,6 +34,7 @@ const SearchContainer = () => {
       handleChange={handleChange}
       handleKeyPress={handleKeyPress}
       handleSearch={handleSearch}
+      handleFormOpen={handleFormOpen}
     />
   )
 }

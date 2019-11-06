@@ -32,6 +32,12 @@ const reducer = (state, action) => {
         chosenTitle: action.payload.title
       }
     }
+    case "OPEN_ADD_FORM": {
+      return {
+        ...state,
+        isAddFormOpen: action.payload.isAddFormOpen
+      }
+    }
     default: {
       throw new Error(`Unhandled action type: ${action.type}`)
     }

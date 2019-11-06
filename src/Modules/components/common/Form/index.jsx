@@ -6,26 +6,29 @@ import DialogActions from "@material-ui/core/DialogActions"
 import DialogContent from "@material-ui/core/DialogContent"
 import DialogContentText from "@material-ui/core/DialogContentText"
 import DialogTitle from "@material-ui/core/DialogTitle"
+import { useStoreState, useStoreDispatch } from "../../../../Lib/contexts/Store"
+import { openAddForm } from "../../../../Lib/actions"
 
 export default function FormDialog() {
+  const state = useStoreState()
+  const dispatch = useStoreDispatch()
+  // TODO delete local state
   const [open, setOpen] = React.useState(false)
 
-  const handleClickOpen = () => {
-    setOpen(true)
-  }
+  React.useEffect(() => {
+    console.log("hi")
+    setOpen(state.isAddFormOpen)
+  }, [state.isAddFormOpen])
 
-  const handleClose = () => {
-    setOpen(false)
+  const handleToggleForm = () => {
+    dispatch(openAddForm(!state.isAddFormOpen))
   }
 
   return (
     <section>
-      <Button variant="outlined" color="primary" onClick={handleClickOpen}>
-        Add New
-      </Button>
       <Dialog
         open={open}
-        onClose={handleClose}
+        onClose={handleToggleForm}
         aria-labelledby="form-dialog-title"
       >
         <DialogTitle id="form-dialog-title">Add Your Song</DialogTitle>
@@ -65,10 +68,10 @@ export default function FormDialog() {
           />
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} color="primary">
+          <Button onClick={handleToggleForm} color="primary">
             Cancel
           </Button>
-          <Button onClick={handleClose} color="primary">
+          <Button onClick={handleToggleForm} color="primary">
             Save
           </Button>
         </DialogActions>

@@ -9,6 +9,7 @@ const initialState = {
   metaData: [],
   isDialogOpen: false,
   isSearchOpen: false,
+  isAddFormOpen: false,
   matchFound: false,
   chosenTitle: ""
 }
