@@ -4,6 +4,7 @@ import InputBase from "@material-ui/core/InputBase"
 import Divider from "@material-ui/core/Divider"
 import IconButton from "@material-ui/core/IconButton"
 import SearchIcon from "@material-ui/icons/Search"
+import AddButton from "../AddButton"
 import TriggerDialog from "../../Select/TriggerDialog"
 import { useStyles } from "./Styles"
 
@@ -11,12 +12,12 @@ export const SearchInput = ({
   inputVal,
   handleChange,
   handleKeyPress,
-  handleSearch
+  handleSearch,
+  handleFormOpen
 }) => {
   const classes = useStyles()
-
   return (
-    <Paper className={classes.root}>
+    <Paper className={classes.wrapper}>
       <TriggerDialog />
       <InputBase
         className={classes.input}
@@ -34,6 +35,15 @@ export const SearchInput = ({
         aria-label="search"
       >
         <SearchIcon />
+      </IconButton>
+      <Divider className={classes.divider} orientation="vertical" />
+      <IconButton
+        color="primary"
+        className={classes.iconButton}
+        aria-label="directions"
+        onClick={handleFormOpen}
+      >
+        <AddButton />
       </IconButton>
     </Paper>
   )
