@@ -6,11 +6,11 @@ const Results = ({ state }) => {
   const hasResults = state.searchResults && state.searchResults.length > 0
   return (
     <>
-      {hasResults ? (
-        <Table rows={state.searchResults} />
-      ) : (
-        <MatchFound state={state} />
-      )}
+      <Table
+        style={{ visibility: hasResults ? "visible" : "hidden" }}
+        rows={state.searchResults}
+      />
+      {!hasResults && <MatchFound state={state} />}
     </>
   )
 }
