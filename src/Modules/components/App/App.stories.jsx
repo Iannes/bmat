@@ -1,5 +1,5 @@
 import React from "react"
 import { storiesOf } from "@storybook/react"
-import App from "./App"
+import App from "."
 
 storiesOf("App", module).add("App", () => <App />)
