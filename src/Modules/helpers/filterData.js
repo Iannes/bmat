@@ -5,6 +5,9 @@ import deburr from "lodash/deburr"
  *
  * @param {string} value
  * @param {array} database
+ * @param {string} key
+ *
+ * @returns { boolean }
  *
  */
 
