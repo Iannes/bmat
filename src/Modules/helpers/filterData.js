@@ -1,7 +1,7 @@
 import deburr from "lodash/deburr"
 
 /**
- * Gets autocorrect database
+ * Searches database
  *
  * @param {string} value
  * @param {array} database
