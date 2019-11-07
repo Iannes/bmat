@@ -50,8 +50,6 @@ The project utilises [PapaParse](https://www.papaparse.com/) to read the `csv` v
 
 ### Design Choices
 
-<hr>
-
 #### Matching Candidates
 
 For the first part of this exercise, I chose to use a hidden modal component, as in my opinion
@@ -70,3 +68,13 @@ That could be improved however, by either hiding the search bar and open it usin
 The user can add a new recording to the database, by clicking on the plus icon on the right hand side of the search bar.
 
 When no results are found, the user sees some text prompting them to add new songs to the database.
+
+### Further Improvements
+
+At the moment, a user can either use the search bar to look for artists only, or use the modal to search by song title only.
+
+- A nice improvement for the user experience would be for the users to be able to search either by song title or artist just by using the search bar.
+
+- The search bar could use its own container so its position doesn't get affected by the search results table's dimensions
+
+- The app is generally responsive, but the table showing the results isn't mobile friendly. A more responsive component could be used instead to avoid this.
