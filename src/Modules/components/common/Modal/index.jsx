@@ -21,7 +21,6 @@ export default function DialogSelect({ data = [] }) {
   const dispatch = useStoreDispatch()
 
   React.useEffect(() => {
-    console.log(state)
     setOpen(state.isDialogOpen)
   }, [state, state.isDialogOpen])
 

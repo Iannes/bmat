@@ -1,7 +1,6 @@
 import React from "react"
 import { Wrapper } from "./Styles"
 import AppBar from "../MenuBar"
-import Banner from "../../Banner"
 
 const AppLayout = ({ children }) => {
   return (

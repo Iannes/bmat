@@ -16,7 +16,6 @@ const useFetchData = (fileInput, type = "FETCH_DATA") => {
       const results = await Papa.parse(csv, { header: true })
       const dataRows = results.data
       setRows(dataRows)
-      console.log("Fetched results")
     }
     getData()
   }, [fileInput])
