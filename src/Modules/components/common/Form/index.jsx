@@ -1,7 +1,7 @@
 import React from "react"
 import { Form } from "./Form"
 import { useStoreState, useStoreDispatch } from "../../../../Lib/contexts/Store"
-import { openAddForm } from "../../../../Lib/actions"
+import { openAddForm, submitForm } from "../../../../Lib/actions"
 
 const FormContainer = () => {
   const [formValues, setFormValues] = React.useState([])
@@ -15,7 +15,7 @@ const FormContainer = () => {
       [e.target.name]: e.target.value
     })
   }
-
+  // each render set the form's open state
   React.useEffect(() => {
     setOpen(state.isAddFormOpen)
   }, [state.isAddFormOpen])
@@ -26,7 +26,8 @@ const FormContainer = () => {
   const handleSubmit = e => {
     e.preventDefault()
     if (formValues.length === 0) return
-    console.log("values", formValues)
+    // Set to global state
+    dispatch(submitForm(formValues))
     handleToggleForm()
   }
 

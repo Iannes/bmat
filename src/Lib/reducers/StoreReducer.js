@@ -38,6 +38,12 @@ const reducer = (state, action) => {
         isAddFormOpen: action.payload.isAddFormOpen
       }
     }
+    case "SUBMIT_FORM": {
+      return {
+        ...state,
+        data: [...state.data, action.payload.formData]
+      }
+    }
     default: {
       throw new Error(`Unhandled action type: ${action.type}`)
     }

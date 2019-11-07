@@ -22,3 +22,9 @@ export const openAddForm = boolean => {
     payload: { isAddFormOpen: boolean }
   }
 }
+export const submitForm = (formData = []) => {
+  return {
+    type: "SUBMIT_FORM",
+    payload: { formData }
+  }
+}
